@@ -1,14 +1,20 @@
-import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+"use client";
+
+import { Modal } from "@/components/ui/modal";
 
 export default function SetupPage() {
+
+
     return (
         <div className="p-4">
-            <SignedOut>
-                <SignInButton />
-            </SignedOut>
-            <SignedIn>
-                <UserButton afterSignOutUrl="/fwafwa" />
-            </SignedIn>
+            <Modal
+                isOpen
+                title="Modal Title"
+                description="Modal Description"
+                onClose={() => {}}
+            >
+                Children
+            </Modal>
         </div>
     );
 }
