@@ -37,19 +37,18 @@ export const StoreModal = () => {
     });
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
-        // TODO: "Create store"
-        // Do something with the form values.
-        // ✅ This will be type-safe and validated.
-        console.log(values);
-
         try {
             setLoading(true);
-            
-            throw new Error("Not implemented");
 
             const response = await axios.post("/api/stores", values);
 
-            toast.success("Store created successfully");
+            // Why not use the router?
+            // Because we want to reload the page to fetch the new store.
+            // We could use the router to navigate to the new store page.
+            // But we would have to fetch the store data again.
+            // So, it's better to reload the page.
+            // router.push(`/${response.data.id}`);
+            window.location.assign(`/${response.data.id}`);
         } catch (error) {
             toast.error("Something went wrong. Please try again.");
         } finally {
