@@ -27,7 +27,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
     }, []);
 
     const onUpload = (result: any) => {
-        console.log(result);
+        console.log("result", result);
 
         if (onChange) onChange(result.info.secure_url);
     };
@@ -35,12 +35,15 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
     if (!isMouted) {
         return null;
     }
+
+    console.log("values", values);
+
     return (
         <div>
             <div className="mb-4 flex items-center gap-4">
-                {values.map((url) => (
+                {values.map((url, index) => (
                     <div
-                        key={url}
+                        key={url + index}
                         className="relative w-[200px] h-[200px] rounded-md overflow-hidden"
                     >
                         <div className="z-10 absolute top-2 right-2">
